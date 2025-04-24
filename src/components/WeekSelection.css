@@ -1,0 +1,68 @@
+.week-selection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: white;
+  position: relative;
+}
+
+.week-selection h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.weeks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.week-button {
+  background-color: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+
+.week-button:hover {
+  background-color: rgba(30, 41, 59, 1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.calendar-icon {
+  margin-right: 0.5rem;
+}
+
+.arrow {
+  margin-left: auto;
+}
+
+.all-weeks {
+  background-color: rgb(37, 99, 235);
+}
+
+.all-weeks:hover {
+  background-color: rgb(29, 78, 216);
+}
+
+.home-icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.home-icon:hover {
+  opacity: 1;
+}
