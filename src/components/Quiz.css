@@ -3,6 +3,10 @@
   margin: 0 auto;
   padding: 1rem;
   color: white;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+  word-spacing: 0.5em;
 }
 
 .quiz-header {
@@ -17,6 +21,7 @@
 .quiz-header h1 {
   font-size: 1.8rem;
   margin: 0;
+  word-spacing: 0.3em;
 }
 
 .back-link {
@@ -66,19 +71,24 @@
 
 .question-container h2 {
   color: white;
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin: 0;
   padding: 0;
   text-align: left;
   font-weight: bold;
+  word-spacing: 0.4em;
+  line-height: 1.5;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .options-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 8px;
   margin-top: 1rem;
   padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .option-button {
@@ -97,7 +107,10 @@
   justify-content: space-between;
   margin: 0;
   width: 100%;
+  box-sizing: border-box;
   position: relative;
+  word-break: break-word;
+  word-spacing: 0.4em;
 }
 
 .option-button:not(.selected):not(.correct):not(.incorrect):hover {
@@ -181,31 +194,127 @@
 }
 
 /* Responsive Design */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .quiz-container {
-    padding: 0.5rem;
+    padding: 0.75rem;
+    word-spacing: 0.4em;
   }
 
   .quiz-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
   }
 
   .quiz-header h1 {
     font-size: 1.5rem;
+    word-spacing: 0.25em;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
   }
 
   .question-container {
-    padding: 1rem;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .question-container h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    word-spacing: 0.35em;
+  }
+
+  .options-container {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 0.75rem;
+    padding: 0.25rem;
   }
 
   .option-button {
     padding: 0.75rem;
     font-size: 0.9rem;
+    min-height: 42px;
+    word-spacing: 0.35em;
+  }
+
+  .mark {
+    font-size: 1.3rem;
+    margin-left: 0.75rem;
+  }
+
+  .wrong-mark {
+    font-size: 1.4rem;
+  }
+
+  .score-container {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .score-container h3 {
+    font-size: 1.3rem;
+  }
+
+  .score-container p {
+    font-size: 0.95rem;
+  }
+
+  .submit-container {
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .submit-button {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 0.5rem;
+    word-spacing: 0.3em;
+  }
+
+  .quiz-header h1 {
+    font-size: 1.3rem;
+    word-spacing: 0.2em;
+  }
+
+  .back-link {
+    font-size: 0.8rem;
+  }
+
+  .question-container {
+    padding: 0.5rem;
+  }
+
+  .question-container h2 {
+    font-size: 1.1rem;
+    word-spacing: 0.3em;
+  }
+
+  .option-button {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    min-height: 38px;
+    word-spacing: 0.3em;
+  }
+
+  .mark {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+
+  .wrong-mark {
+    font-size: 1.3rem;
+  }
+
+  .score-container {
+    padding: 1rem;
   }
 
   .score-container h3 {
@@ -213,6 +322,11 @@
   }
 
   .score-container p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    padding: 0.6rem;
+    font-size: 0.95rem;
   }
 }

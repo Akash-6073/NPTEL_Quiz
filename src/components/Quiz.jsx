@@ -479,76 +479,78 @@ const Quiz = () => {
   };
 
   return (
-    <div className="quiz-container">
-      <div className="quiz-header">
-        <h1>Outside {week === "all" ? "All Questions" : week}</h1>
-        <Link to="/" className="back-link">
-          ← Back to Outside Selection
-        </Link>
-        <button className="redo-button" onClick={handleRedo}>
-          ↻ Redo Quiz
-        </button>
-      </div>
-
-      {isSubmitted && (
-        <div className="score-container">
-          <h3>
-            Your Score: {score} out of {questions.length}
-          </h3>
-          <p>
-            Answered: {Object.keys(selectedAnswers).length} of{" "}
-            {questions.length} questions (
-            {((score / questions.length) * 100).toFixed(1)}%)
-          </p>
-        </div>
-      )}
-
-      <div className="questions-list">
-        {questions.map((question, index) => (
-          <div key={`${question.id}-${index}`} className="question-container">
-            <h2>{`${index + 1}. ${question.question}`}</h2>
-            <div className="options-container">
-              {question.options.map((option, optIndex) => (
-                <button
-                  key={`${question.id}-${option}-${optIndex}`}
-                  className={`option-button ${
-                    selectedAnswers[question.id] === option
-                      ? isSubmitted
-                        ? option === question.correctAnswer
-                          ? "correct"
-                          : "incorrect"
-                        : "selected"
-                      : isSubmitted && option === question.correctAnswer
-                      ? "correct"
-                      : ""
-                  }`}
-                  onClick={() => handleAnswerSelect(question.id, option)}
-                >
-                  {option}
-                  {isSubmitted &&
-                    (selectedAnswers[question.id] === option ? (
-                      option === question.correctAnswer ? (
-                        <span className="mark correct-mark">✓</span>
-                      ) : (
-                        <span className="mark wrong-mark">✕</span>
-                      )
-                    ) : option === question.correctAnswer ? (
-                      <span className="mark correct-mark">✓</span>
-                    ) : null)}
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {!isSubmitted && (
-        <div className="submit-container">
-          <button className="submit-button" onClick={handleSubmit}>
-            Submit Quiz
+    <div className="wrapper">
+      <div className="quiz-container">
+        <div className="quiz-header">
+          <h1>Outside {week === "all" ? "All Questions" : week}</h1>
+          <Link to="/" className="back-link">
+            ← Back to Outside Selection
+          </Link>
+          <button className="redo-button" onClick={handleRedo}>
+            ↻ Redo Quiz
           </button>
         </div>
-      )}
+
+        {isSubmitted && (
+          <div className="score-container">
+            <h3>
+              Your Score: {score} out of {questions.length}
+            </h3>
+            <p>
+              Answered: {Object.keys(selectedAnswers).length} of{" "}
+              {questions.length} questions (
+              {((score / questions.length) * 100).toFixed(1)}%)
+            </p>
+          </div>
+        )}
+
+        <div className="questions-list">
+          {questions.map((question, index) => (
+            <div key={`${question.id}-${index}`} className="question-container">
+              <h2>{`${index + 1}. ${question.question}`}</h2>
+              <div className="options-container">
+                {question.options.map((option, optIndex) => (
+                  <button
+                    key={`${question.id}-${option}-${optIndex}`}
+                    className={`option-button ${
+                      selectedAnswers[question.id] === option
+                        ? isSubmitted
+                          ? option === question.correctAnswer
+                            ? "correct"
+                            : "incorrect"
+                          : "selected"
+                        : isSubmitted && option === question.correctAnswer
+                        ? "correct"
+                        : ""
+                    }`}
+                    onClick={() => handleAnswerSelect(question.id, option)}
+                  >
+                    {option}
+                    {isSubmitted &&
+                      (selectedAnswers[question.id] === option ? (
+                        option === question.correctAnswer ? (
+                          <span className="mark correct-mark">✓</span>
+                        ) : (
+                          <span className="mark wrong-mark">✕</span>
+                        )
+                      ) : option === question.correctAnswer ? (
+                        <span className="mark correct-mark">✓</span>
+                      ) : null)}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {!isSubmitted && (
+          <div className="submit-container">
+            <button className="submit-button" onClick={handleSubmit}>
+              Submit Quiz
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

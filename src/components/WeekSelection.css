@@ -1,40 +1,62 @@
-.week-selection {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
-  color: white;
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
   position: relative;
 }
 
+.week-selection {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .week-selection h1 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .weeks-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .week-button {
   background-color: rgba(30, 41, 59, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
+  padding: 1rem;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 8px;
+  width: 100%;
+  min-height: 60px;
 }
 
 .week-button:hover {
   background-color: rgba(30, 41, 59, 1);
   border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
 .calendar-icon {
@@ -47,6 +69,7 @@
 
 .all-weeks {
   background-color: rgb(37, 99, 235);
+  grid-column: 1 / -1;
 }
 
 .all-weeks:hover {
@@ -55,9 +78,9 @@
 
 .home-icon {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 2rem;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.3s ease;
@@ -65,4 +88,80 @@
 
 .home-icon:hover {
   opacity: 1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  background-color: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.footer span {
+  color: #ef4444;
+  margin: 0 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1rem 0.5rem;
+    min-height: 100dvh;
+  }
+
+  .week-selection h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .weeks-grid {
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .week-button {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+    min-height: 55px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 0.75rem 0.25rem;
+    min-height: 100dvh;
+  }
+
+  .week-selection h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .weeks-grid {
+    gap: 0.5rem;
+    padding: 0.25rem;
+  }
+
+  .week-button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    min-height: 50px;
+  }
+
+  .home-icon {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .footer {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
 }
